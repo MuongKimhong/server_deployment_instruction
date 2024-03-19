@@ -100,6 +100,8 @@ server {
     }
 }
 ```
+Repeat the same process as above, add nginx conf file to site-enabled
+
 http://160.39.192.225:3000 because server running on port 3000 
 
 make sure it's the same as port that server is running on
