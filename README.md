@@ -2,6 +2,8 @@
 All steps on how to deploy Django and websocket (node socketio) to ubuntu server \
 and config https.
 
+Make sure to have all domain names that being used down below pointed to corresponding server
+
 ## For Django server
 
 Install nginx and virtual environment for python3
