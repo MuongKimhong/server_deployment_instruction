@@ -4,6 +4,11 @@ and config https.
 
 Make sure to have all domain names that being used down below pointed to corresponding server
 
+### DNS notes
+In domain registra site make sure to point domain name to custom DNS provided by server (digitalocean, linode,...).
+
+In server provider site, make sure to add new A record for domain.com or customhost.domain.com to point to server ip address.
+
 ## For Django server
 
 Install nginx and virtual environment for python3
