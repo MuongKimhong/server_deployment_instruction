@@ -9,6 +9,17 @@ In domain registra site make sure to point domain name to custom DNS provided by
 
 In server provider site, make sure to add new A record for domain.com or customhost.domain.com to point to server ip address.
 
+setup firewall:
+```
+sudo ufw deny incoming
+sudo ufw allow outgoing
+sudo ufw allow 8000 8000/tcp
+sudo ufw allow 80 80/tcp
+sudo ufw allow 443 443/tcp
+sudo ufw allow 3000 3000/tcp
+sudo ufw enable
+```
+
 ## For Django server
 
 Install nginx and virtual environment for python3
@@ -111,14 +122,7 @@ http://160.39.192.225:3000 because server running on port 3000
 
 make sure it's the same as port that server is running on
 
-Run the websocket server
-```
-node index.js
-```
-To run in background press `Ctrl+z` and run
-```
-bg
-```
+To run node server in background see: https://stackoverflow.com/questions/4018154/how-do-i-run-a-node-js-app-as-a-background-service
 
 ## Enable HTTPS for domain names (https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal)
 Remove certbot-auto and any certbot OS package
