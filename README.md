@@ -145,3 +145,30 @@ Certbot will ask to select which domain names you want as https
 
 After it finished, notice that our nginx config files have been 
 modified by Certbot.
+
+## CloudFlare
+After setting up cloudflare, change SSL settings to Full or Full strict HTTPS and update nginx conf to 
+```nginx
+server {
+    listen 80;
+    server_name myhost.domain.com;
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name myhost.domain.com;
+
+    ssl_certificate /etc/letsencrypt/live/myhost.domain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/myhost.domain.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    location / {
+        proxy_pass http:..... <- ip address and port
+    }
+}
+```
